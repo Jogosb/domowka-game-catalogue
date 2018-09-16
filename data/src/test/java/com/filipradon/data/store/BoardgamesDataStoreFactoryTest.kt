@@ -16,12 +16,12 @@ class BoardgamesDataStoreFactoryTest {
     }
 
     @Test
-    fun `assert getDataStore returns remote store when beers not cached`() {
+    fun `assert getDataStore returns remote store when boardgames not cached`() {
         assertEquals(remoteStore, factory.getDataStore(false, false))
     }
 
     @Test
-    fun `assert getDataStore returns cache store when beers are cached and not expired`() {
+    fun `assert getDataStore returns cache store when boardgames are cached and not expired`() {
         assertEquals(cacheStore, factory.getDataStore(true, false))
     }
 

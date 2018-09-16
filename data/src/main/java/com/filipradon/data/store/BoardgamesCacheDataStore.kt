@@ -7,7 +7,7 @@ import io.reactivex.Completable
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class BoardgamesCacheDataStore @Inject constructor(
+open class BoardgamesCacheDataStore @Inject constructor(
         private val boardgamesCache: BoardgamesCache) : BoardgamesDataStore {
 
     override fun getBoardgames(): Observable<List<BoardgameEntity>> {
