@@ -3,7 +3,7 @@ package com.filipradon.data.store
 import com.filipradon.data.repository.BeersDataStore
 import javax.inject.Inject
 
-class BeersDataStoreFactory @Inject constructor(
+open class BeersDataStoreFactory @Inject constructor(
         private val beersCacheDataStore: BeersCacheDataStore,
         private val beersRemoteDataStore: BeersRemoteDataStore) {
 

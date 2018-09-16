@@ -7,7 +7,7 @@ import io.reactivex.Completable
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class BeersRemoteDataStore @Inject constructor(
+open class BeersRemoteDataStore @Inject constructor(
         private val beersRemote: BeersRemote): BeersDataStore {
 
     override fun getBeers(): Observable<List<BeerEntity>> {
