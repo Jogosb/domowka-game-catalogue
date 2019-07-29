@@ -4,7 +4,7 @@ import com.filipradon.data.model.BeerEntity
 import com.filipradon.domain.model.Beer
 import javax.inject.Inject
 
-class BeerMapper @Inject constructor() : EntityMapper<BeerEntity, Beer> {
+open class BeerMapper @Inject constructor() : EntityMapper<BeerEntity, Beer> {
 
     override fun mapFromEntity(entity: BeerEntity): Beer {
         return Beer(entity.name, entity.brewery, entity.style, entity.ibu, entity.blg, entity.abv,

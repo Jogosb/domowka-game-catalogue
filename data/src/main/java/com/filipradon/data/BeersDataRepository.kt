@@ -7,6 +7,7 @@ import com.filipradon.domain.model.Beer
 import com.filipradon.domain.repository.BeersRepository
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
+
 import javax.inject.Inject
 
 class BeersDataRepository @Inject constructor(
