@@ -4,6 +4,7 @@ import com.filipradon.domain.executor.PostExecutionThread
 import com.filipradon.domain.interactor.test.BeerDataFactory
 import com.filipradon.domain.model.Beer
 import com.filipradon.domain.repository.BeersRepository
+import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable
@@ -24,21 +25,17 @@ class GetBeersTest {
     @Test
     fun `assert that getBeers completes`() {
         stubGetBeers(Observable.just(BeerDataFactory.makeBeerList(5)))
-        val testObserver = getBeers.buildUseCaseObservable().test()
-
-        testObserver.assertComplete()
+        getBeers.buildUseCaseObservable().test().assertComplete()
     }
 
     @Test
     fun `assert that getBeers returns proper data`() {
         val beers = BeerDataFactory.makeBeerList(5)
         stubGetBeers(Observable.just(beers))
-        val testObserver = getBeers.buildUseCaseObservable().test()
-
-        testObserver.assertValue(beers)
+        getBeers.buildUseCaseObservable().test().assertValue(beers)
     }
 
     private fun stubGetBeers(observable: Observable<List<Beer>>) {
-        whenever(beersRepository.getBeers()).thenReturn(observable)
+        whenever(beersRepository.getBeers()) doReturn observable
     }
 }
