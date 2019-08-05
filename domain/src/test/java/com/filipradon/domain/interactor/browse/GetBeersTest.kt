@@ -24,7 +24,7 @@ class GetBeersTest {
     @Test
     fun `assert that getBeers completes`() {
         stubGetBeers(Observable.just(BeerDataFactory.makeBeerList(5)))
-        val testObserver = getBeers.buildUserCaseObservable().test()
+        val testObserver = getBeers.buildUseCaseObservable().test()
 
         testObserver.assertComplete()
     }
@@ -33,7 +33,7 @@ class GetBeersTest {
     fun `assert that getBeers returns proper data`() {
         val beers = BeerDataFactory.makeBeerList(5)
         stubGetBeers(Observable.just(beers))
-        val testObserver = getBeers.buildUserCaseObservable().test()
+        val testObserver = getBeers.buildUseCaseObservable().test()
 
         testObserver.assertValue(beers)
     }

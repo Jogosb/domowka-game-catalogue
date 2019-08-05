@@ -24,7 +24,7 @@ class GetBoardgamesTest {
     @Test
     fun `assert that getBoardgames completes`() {
         stubGetBoardgames(Observable.just(BoardgameDataFactory.makeBoardgameList(5)))
-        val testObserver = getBoardgames.buildUserCaseObservable().test()
+        val testObserver = getBoardgames.buildUseCaseObservable().test()
 
         testObserver.assertComplete()
     }
@@ -33,7 +33,7 @@ class GetBoardgamesTest {
     fun `assert that getBoardgames returns proper data`() {
         val boardgames = BoardgameDataFactory.makeBoardgameList(5)
         stubGetBoardgames(Observable.just(boardgames))
-        val testObserver = getBoardgames.buildUserCaseObservable().test()
+        val testObserver = getBoardgames.buildUseCaseObservable().test()
 
         testObserver.assertValue(boardgames)
     }
