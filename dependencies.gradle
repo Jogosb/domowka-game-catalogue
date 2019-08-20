@@ -15,14 +15,14 @@ ext {
     rxKotlinVersion = '2.4.0'
     androidAnnotationsVersion = '21.0.3'
     daggerVersion = '2.11'
-    retrofitVersion = '2.6.1'
-    gsonVersion = '2.8.5'
-    okHttpVersion = '4.0.1'
+    gsonVersion = '2.8.1'
+    okHttpVersion = '3.8.1'
+    retrofitVersion = '2.3.0'
 
     // testing
     jUnitVersion = '4.12'
     assertJVersion = '3.8.0'
-    mockitoKotlinVersion = '2.0.0-RC1'
+    mockitoKotlinVersion = '2.1.0'
     mockitoVersion = '1.5.0'
     robolectricVersion = '3.4.2'
 
@@ -54,15 +54,24 @@ ext {
     ]
 
     remoteDependencies = [
-            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
-            javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
-            rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxJavaVersion}"
+            gson:               "com.google.code.gson:gson:${gsonVersion}",
+            rxKotlin:           "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
+            javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
+            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
+            okHttp:             "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpLogger:       "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            retrofit:           "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitConverter:  "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitAdapter:    "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
     ]
 
     remoteTestDependencies = [
-            junit: "junit:junit:${jUnitVersion}",
-            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
-            assertj: "org.assertj:assertj-core:${assertJVersion}"
+            junit:              "junit:junit:${jUnitVersion}",
+            kotlinJUnit:        "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
+            assertj:            "org.assertj:assertj-core:${assertJVersion}",
+            mockito:            "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}"
     ]
 
 
