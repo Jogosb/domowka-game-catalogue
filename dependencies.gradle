@@ -15,6 +15,9 @@ ext {
     rxKotlinVersion = '2.4.0'
     androidAnnotationsVersion = '21.0.3'
     daggerVersion = '2.11'
+    retrofitVersion = '2.6.1'
+    gsonVersion = '2.8.5'
+    okHttpVersion = '4.0.1'
 
     // testing
     jUnitVersion = '4.12'
@@ -49,4 +52,18 @@ ext {
             mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
             assertj: "org.assertj:assertj-core:${assertJVersion}"
     ]
+
+    remoteDependencies = [
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxJavaVersion}"
+    ]
+
+    remoteTestDependencies = [
+            junit: "junit:junit:${jUnitVersion}",
+            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
+            assertj: "org.assertj:assertj-core:${assertJVersion}"
+    ]
+
+
 }

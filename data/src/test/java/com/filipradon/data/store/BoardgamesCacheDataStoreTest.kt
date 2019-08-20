@@ -6,6 +6,7 @@ import com.filipradon.data.test.factory.BoardgameFactory
 import com.filipradon.domain.model.Boardgame
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable
 import org.junit.Assert.*
@@ -27,6 +28,13 @@ class BoardgamesCacheDataStoreTest {
         val data = listOf(BoardgameFactory.makeBoardgameEntity())
         stubBoardgamesCacheGetBoardgames(Observable.just(data))
         store.getBoardgames().test().assertValue(data)
+    }
+
+    @Test
+    fun `assert get boardgames callas cache source`() {
+        stubBoardgamesCacheGetBoardgames(Observable.just(listOf(BoardgameFactory.makeBoardgameEntity())))
+        store.getBoardgames().test()
+        verify(cache).getBoardgames()
     }
 
     private fun stubBoardgamesCacheGetBoardgames(observable: Observable<List<BoardgameEntity>>) {
